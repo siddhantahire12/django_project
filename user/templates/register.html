@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Register
+{% endblock %}
+
+{% block content %}
+	<h1> Register</h1>
+
+	<form method="POST" action="{% url 'register' %}" onsubmit="return validate()">
+	{% csrf_token %}
+	<table>
+		<tr>
+			<td><input type="text" name="fn" id="fn" placeholder="Enter first name" required autofocus> </td>
+		</tr>
+		<tr>
+			<td><input type="text" name="ln" id="ln" placeholder="Enter last name" required> </td>
+		</tr>
+		<tr>
+			<td><input type="email" name="em" id="em" placeholder="Enter email id" required> </td>
+		</tr>
+		<tr>
+			<td><input type="text" name="un" id="un" placeholder="Create Username" required> </td>
+		</tr>
+		<tr>
+			<td><input type="password" name="p1" id="pw1" placeholder="Create password" required> </td>
+		</tr>
+		<tr>
+			<td><input type="password" name="p2" placeholder="Confirm password" required> </td>
+		</tr>
+	</table>
+		<input type="submit" value="Register">
+	</form>
+
+	<h3>{{msg}}</h3>
+	<script src="{% static 'js/validate.js' %}"></script>
+{% endblock %}

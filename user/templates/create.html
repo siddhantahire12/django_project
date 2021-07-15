@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+	Create Post
+{% endblock %}
+
+{% block content %}
+	<h1>Create Post</h1>
+
+	<form method="POST" action="{% url 'create' %}" onsubmit="return validate()">
+	{% csrf_token %}
+	<table>
+		{{fm.as_table}}
+	</table>
+		<input type="submit" value="Post">
+	</form>
+	{{msg}}
+	<script src="{% static 'js/create.js' %}"></script>
+		
+{% endblock %}

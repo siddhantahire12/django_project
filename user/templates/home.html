@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Home
+{% endblock %}
+
+{% block content %}
+	<h1>My Posts</h1>
+
+		{% if data %}
+			{% for d in data %}
+			<table>
+				<tr>
+					<td><b>Post Id:</b></td></b>
+					<td> {{d.id}}</td> </tr>
+
+					<td><b>Post:</b></td></b>
+					<td> {{d.text}}</td> </tr>
+
+					<td><b>Created At:</b></td></b>
+					<td> {{d.created_at}}</td></tr>
+
+					<td><b>Updated At:</b></td></b>
+					<td> {{d.updated_at}}</td></tr>
+
+					
+					<td> <button><a href="{% url 'edit' id=d.id %}" style="text-decoration:none;color:black">Update Post</a></button></td>
+					<td> <button><a href="{% url 'delete' id=d.id %}" onclick="return confirm('Are you sure?')" style="text-decoration:none;color:black">Delete Post</a></button></td>
+				</tr>
+				
+			</table>
+			<hr>
+			{% endfor %}
+						
+		{% else %}
+		<table border=2>
+			<tr>
+				<td> No Post Found </td>
+			</tr>
+		</table>
+		{% endif %}
+	
+{% endblock %}

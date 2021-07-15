@@ -1,0 +1,19 @@
+*{
+	font-family:calibri;
+	font-size:40px
+}
+
+body{
+	margin:0px;
+}
+
+
+.nav {
+	background-color:black;
+}
+
+.nav a{
+	color:white;
+	text-decoration:none;
+	padding:15px
+}

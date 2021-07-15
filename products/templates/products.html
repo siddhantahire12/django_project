@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Products
+{% endblock %}
+
+{% block content %}
+	<h1> Products</h1>
+	{% if data %}
+		{% for d in data %}
+			<table>
+				<tr>
+					<td> <b>Name:</b></td>
+					<td> {{d.name}} </td>
+					
+				</tr>
+				<tr>
+					<td><b>Weight(in kg.):</b></td>
+					<td> {{d.weight}} </td>
+					
+				</tr>
+				<tr>
+					<td><b>Created At:</b></td>
+					<td> {{d.created_at}} </td>
+					
+				</tr>
+				<tr>
+					<td> <b>Updated At:</b> </td>
+					<td>  {{d.updated_at}} </td>
+					
+				</tr>
+			</table>
+			<hr>
+		{% endfor %}
+	{% else %}
+		<table>
+			<tr>
+				<td>No Product Found </td>
+			</tr>
+		</table>
+	{% endif %}
+{% endblock %}

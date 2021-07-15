@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Login
+{% endblock %}
+
+{% block content %}
+	<h1> Login</h1>
+
+	<form method="POST" action="{% url 'ulogin' %}">
+	{% csrf_token %}
+	<table>
+		
+		<tr>
+			<td><input type="text" name="un" placeholder="Enter username" required autofocus> </td>
+		</tr>
+		<tr>
+			<td><input type="password" name="pw" placeholder=" Enter password" required> </td>
+		</tr>
+		
+	</table>
+		<input type="submit" value="Login">
+	</form>
+
+	<h3>{{msg}}</h3>
+{% endblock %}

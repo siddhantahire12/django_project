@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>
+		{% block title %}{% endblock %}
+	</title>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	<center>
+		<div class="nav">
+			{% if user.is_authenticated %}
+				<a href="{% url 'home' %}">Home</a>
+				<a href="{% url 'profile' %}">Profile</a>
+				<a href="{% url 'create' %}">Create Post</a>
+				<a href="{% url 'products' %}">Products</a>
+				<a href="{% url 'ulogout' %}" onclick="return confirm('Are you sure?')">Logout</a>
+			{% else %}
+				<a href="{% url 'ulogin' %}">Login</a>
+				<a href="{% url 'register' %}">Register</a>
+			{% endif %}
+		</div>
+
+		{% block content %} {% endblock %}
+
+	</center>
+
+</body>
+</html>
